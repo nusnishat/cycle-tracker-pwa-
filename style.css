@@ -12,12 +12,48 @@ body {
   padding: 2rem;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
+  flex-direction: column;
 }
 
+/* Navigation */
+nav {
+  background-color: #d946ef;
+  padding: 1rem;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Container */
 .app-container {
   max-width: 600px;
   width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
 }
 
 /* Header Section */
@@ -45,8 +81,6 @@ form {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
   margin-bottom: 2rem;
   width: 100%;
-  max-width: 100%;
-  overflow: hidden;
 }
 
 legend {
@@ -69,7 +103,6 @@ label {
 input[type="date"] {
   display: block;
   width: 100%;
-  max-width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 12px;
   border: 1px solid #ccc;
@@ -146,6 +179,11 @@ li:hover {
 /* Responsive */
 @media (max-width: 600px) {
   body {
+    padding: 1rem;
+  }
+
+  .app-container {
+    width: 100%;
     padding: 1rem;
   }
 
