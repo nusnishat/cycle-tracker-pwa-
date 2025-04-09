@@ -25,21 +25,21 @@ self.addEventListener("install", (event) => {
 });
 
 // delete old caches on activate
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    (async () => {
-      const names = await caches.keys();
-      await Promise.all(
-        names.map((name) => {
-          if (name !== CACHE_NAME) {
-            return caches.delete(name);
+self.addEventListener('fetch', event => {
+    event.respondWith(
+      caches.match(event.request)
+        .then(cachedResponse => {
+          if (cachedResponse) {
+            return cachedResponse;
           }
+          return fetch(event.request);  // If not in cache, fetch from network
         })
-      );
-      await clients.claim();
-    })()
-  );
-});
+        .catch(() => {
+          return caches.match('/offline.html');  // Fallback if network fails
+        })
+    );
+  });
+  
 
 // On fetch, intercept server requests
 // and respond with cached responses instead of going to network
