@@ -7,26 +7,35 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="manifest" href="cycletracker.json" />
     <link rel="icon" href="icons/circle.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Period tracker</h1>
-    <form id="new-period">
-      <fieldset>
-        <legend>Enter your period start and end date</legend>
-        <p>
-          <label for="start-date">Start date</label>
-          <input type="date" id="start-date" required />
-        </p>
-        <p>
-          <label for="end-date">End date</label>
-          <input type="date" id="end-date" required />
-        </p>
-      </fieldset>
-      <p>
+    <main class="app-container">
+      <header>
+        <h1>🩸 Period Tracker</h1>
+        <p>Track your cycle with ease.</p>
+      </header>
+
+      <form id="new-period">
+        <fieldset>
+          <legend>➕ Add New Period</legend>
+          <div class="input-group">
+            <label for="start-date">Start date</label>
+            <input type="date" id="start-date" required />
+          </div>
+          <div class="input-group">
+            <label for="end-date">End date</label>
+            <input type="date" id="end-date" required />
+          </div>
+        </fieldset>
         <button type="submit">Add Period</button>
-      </p>
-    </form>
-    <section id="past-periods"></section>
+      </form>
+
+      <section id="past-periods"></section>
+    </main>
+
     <script src="app.js" defer></script>
     <script>
       if ("serviceWorker" in navigator) {
